@@ -329,6 +329,31 @@
                 return now.toLocaleDateString('en-US', options);
             }
 
+         
+         
+         
+         // Name Validation
+            const nameInput = document.getElementById("name");
+            const nameErrorMessage = document.createElement("span");
+            nameErrorMessage.style.color = "red";
+            nameErrorMessage.style.display = "none";
+            nameErrorMessage.textContent = "No numbers with name";
+            nameInput.parentElement.appendChild(nameErrorMessage);
+
+            nameInput.addEventListener("input", function() {
+                const nameValue = this.value;
+                if (/\d/.test(nameValue)) 
+                {
+                    nameErrorMessage.style.display = "block";
+                    this.setCustomValidity("No numbers with name");
+                } 
+                else 
+                {
+                    nameErrorMessage.style.display = "none";
+                    this.setCustomValidity("");
+                }
+            });
+         
             // Update current date field
             document.getElementById("currentDate").value = getCurrentDate();
             
