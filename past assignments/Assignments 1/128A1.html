@@ -360,6 +360,7 @@
                 replaceField.disabled = this.value === "";
             });
 
+         
             // Find and replace functionality
             document.getElementById("findAndReplace").addEventListener("click", function() {
                 const findText = document.getElementById("find").value;
@@ -371,10 +372,6 @@
                 alert(`Replacements: ${replacementCount}`);
             });
 
-            // For Reset button
-            document.querySelector("form").addEventListener("reset", function() {
-                document.getElementById("replace").disabled = true;
-            });
 
             // For Translate button 
             document.getElementById("translate").addEventListener("click", function() {
@@ -383,6 +380,12 @@
                 const targetLanguage = document.getElementById("targetLanguage").value;
                 const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
                 window.open(googleTranslateURL);
+            });
+         
+         
+            // For Reset button
+            document.querySelector("form").addEventListener("reset", function() {
+                document.getElementById("replace").disabled = true;
             });
         });
     </script>
