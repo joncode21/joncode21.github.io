@@ -8,21 +8,37 @@
 
     <!--CSS-->
     <style>
-        table {
+        table 
+		{
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+		
+        th, td 
+		{
             border: 1px solid black;
             padding: 15px;
             text-align: left;
         }
-        th {
+		
+        th 
+		{
             background-color: #c3d3e3;
         }
 		
 		
-		#
+		
+		.codingCode
+		{
+			position: relative;
+			left: -250px;
+			display: inline-block;
+		}
+	
+		
+	
+		
+		
     </style>
  
 </head>
@@ -61,7 +77,7 @@
     </table>
     
 <!-- PART 2-->
-    <html><h1><b>Part 2:Hello World Program in different languages</b></h1></html>
+    <html><h1><b>Part 2: Hello World Program in different languages</b></h1></html>
     
     <!--Coding Links Only-->
     <p><a href="#c++" target="_self">C++</a></p>
@@ -78,69 +94,80 @@
 <html>
 
 <body>
-     <div class="languageInfo"> 
-        <h4 id="c++">C++</h4>
-		<img src="CPP.png" width="100px" height="100px" align="left">
-		<pre align="center-left">			
-		  #include <iostream>
+	<div>
+	<h4 id="c++">C++</h4>
+		<div class="codingLanguage">
+			<img src="CPP.png" width="170" height="150" alt="C++ logo">	
+				<div class="codingCode">
+				<pre>	
+					#include &lt;iostream&gt;
 		  
-		  void main( ) {
-		  cout << "Hello World!" << endl;
-		  }	  	  
-        </pre>
-	 </div>
-     <hr \>
+					void main( ) {
+						cout &lt;&lt; "Hello World!" &lt;&lt; endl;
+					}			
+				</pre>			
+				</div>
+		</div>	
+	</div>	
+	<hr>
     
 
-	<div class="languageInfo">
-        <h4 id="c#" >C#</h4> 
-        <img src="CS.png" width="100px" height="100px" align="left" >
-        <pre align="center-left">				
-		using System;
-		class Program
-		{
-            static void Main()
-            {
-                Console.WriteLine("Hello, World!");
-            }
-                    
-        }
-				
-        </pre>
+	<div>
+    <h4 id="c#">C#</h4> 
+		<div class="codingLanguage">
+			<img src="CS.png" width="170" height="150" alt= "C# logo">
+				<div class="codingCode">
+				<pre>	
+					using System;
+					class Program
+					{
+						static void Main()
+						{
+							Console.WriteLine("Hello, World!");
+						}                
+					}		
+				</pre>
+				</div>       
+		</div>
 	</div>
-    <hr \>
+    <hr>
 
-    <div class="languageInfo">
+    <div>
         <h4 id="python">Python</h4>
-        <img src="Python-Language.jpg" width="100px" height="100px" align="left">
-        <pre align="center-left">
-		
-		
-		# Hello World program in Python
-		print("Hello World!")
-		
-		
-        </pre>       
+		<div class ="codingLanguage">
+			<img src="Python-Language.jpg" width="170" height="150" alt="Python logo">
+				<div class="codingCode">
+				<pre>
+					# Hello World program in Python
+					
+					
+					print("Hello World!")						    
+				</pre>  
+			</div>
+		</div>          
     </div>
-    <hr \>
+    <hr>
   
-    <div class="languageInfo">
+    <div>
 		<h4 id="html">HTML</h4>
-		<img src="HTML.png" width="150px" height="150px" align="left">
-		<pre align="left">	
-		
-			&lt;html&gt;
-			&lt;head&gt;
-			&lt;title&gt;Hello&lt;/title&gt;
-			&lt;/head&gt;
-			&lt;body&gt;
-			Hello World!
-			&lt;/body&gt;
-			&lt;/html&gt;
-		
-		</pre>
-        <hr />
-    </div>
+		<div class ="codingLanguage">	
+			<img src="HTML.png" width="170" height="150" alt="HTML logo">
+				<div class="codingCode">
+				<pre>	
+					&lt;html&gt;
+					&lt;head&gt;
+					&lt;title&gt;Hello&lt;/title&gt;
+					&lt;/head&gt;
+					&lt;body&gt;
+					Hello World!
+					&lt;/body&gt;
+					&lt;/html&gt;
+				</pre>
+				</div>
+	    </div>
+	</div>
+    <hr>
+   
     
 </body>
 </html>
