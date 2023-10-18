@@ -1,7 +1,6 @@
 <html>
 <head>
 
-    
  <!-- PART 1-->
     <html><h1><b>Part 1:Group Introduction</b></h1></html>
     <title>CSIT128: Assignment 1</title>
@@ -26,19 +25,6 @@
             background-color: #c3d3e3;
         }
 		
-		
-		
-		.codingCode
-		{
-			position: relative;
-			left: -250px;
-			display: inline-block;
-		}
-	
-		
-	
-		
-		
     </style>
  
 </head>
@@ -54,21 +40,21 @@
         
        
           <tr>
-              <td></td>
+            <td rowspan="3">Student Number / Name / Email</td>
             <td>UOW ID 1:8335175</td>
             <td>Name:Lee Wei Rong</td>
             <td>wrl568@uowmail.edu.au</td>
         </tr>
         
         <tr>
-            <td></td>
+            
             <td>UOW ID 2:8379014</td>
             <td>Name:Ng Wen Xiang Darren</td>
             <td>wxdn990@uowmail.edu.au</td>
         </tr>
         
         <tr>
-            <td></td>
+          
             <td>UOW ID 3:8561539</td>
             <td>Name:Velasquez Juan Miguel Dolaoco</td>
             <td>jmdv992@uowmail.edu.au</td>
@@ -174,38 +160,33 @@
     
 
 <!-- PART 3-->
-    <html><h1><b>Part 3:University policies and services</b></h1></html>
-    <style>
-    .body {
-      font-family: sans-serif;
-    }
+        <html><h1><b>Part 3:University policies and services</b></h1></html>
+        <style>
 
-    .container {
-      width: 500px;
-      margin: 0 auto;
-    }
+        .body {
+          font-family: sans-serif;
+        }
 
-   
+        .container {
+          width: 500px;
+          margin: 0 auto;
+        }
 
+        .content {
+          padding: 20px;
+        }
 
-    .content {
-      padding: 20px;
-    }
+        .title {
+          font-size: larger;
+          font-weight: bold;
+        }
 
-   
-    
-
-    .title {
-      font-size: larger;
-      font-weight: bold;
-    }
-
-    .subtitle {
-      font-size: smaller;
-    }
-  </style>
+        .subtitle {
+          font-size: smaller;
+        }
+      </style>
 </head>
-<body>
+</body>
  
     <div class="header">
       <h1></h1>
@@ -290,11 +271,12 @@
             </tr>
             <tr>
                 <th>Replace:</th>
-                <td><input type="text" id="replace" disabled></td>
+                <td><input type="text" id="replace" enabled></td>
             </tr>
             <tr>
                 <th></th>
                 <td><button id="findAndReplace">Find and Replace</button></td>
+                <span id="replacementCount"></span>
             </tr>
             <tr>
                 <th>Source language:</th>
@@ -331,30 +313,13 @@
     </form>
 
     
+    
 <!--JAVASCRIPT-->
 
     <script>
         // JavaScript code 
         
-     document.addEventListener("DOMContentLoaded", function() {
-            // Get current date and time
-            function getCurrentDate() {
-                const now = new Date();
-                const options = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: true
-                };
-                return now.toLocaleDateString('en-US', options);
-            }
-
-         
-         
-         
+     
          // Name Validation
             const nameInput = document.getElementById("name");
             const nameErrorMessage = document.createElement("span");
@@ -363,7 +328,8 @@
             nameErrorMessage.textContent = "No numbers with name";
             nameInput.parentElement.appendChild(nameErrorMessage);
 
-            nameInput.addEventListener("input", function() {
+            nameInput.addEventListener("input", function()
+            {
                 const nameValue = this.value;
                 if (/\d/.test(nameValue)) 
                 {
@@ -377,31 +343,52 @@
                 }
             });
          
-            // Update current date field
+         
+         
+            // Update current date and time  box
+             function getCurrentDate() 
+            {
+              var now = new Date();
+              var day = now.toLocaleDateString('en-US', {weekday: 'long'});
+              var month = now.toLocaleDateString('en-US', {month: 'long'});
+              var hour = now.getHours();
+              var minute = now.getMinutes();
+              var amOrPm = hour>=12 ? 'PM':'AM';    
+              var twelveHourFormat=hour % 12 || 12;
+                
+
+              return `${now.getDate()} ${month} ${now.getFullYear()},${day},${twelveHourFormat}:${minute < 10 ? '0' + minute : minute} ${amOrPm}`;
+                        
+            }
+            
             document.getElementById("currentDate").value = getCurrentDate();
             
 
             // Toggle replace field based on find input
-            document.getElementById("find").addEventListener("input", function() {
+            document.getElementById("find").addEventListener("input", function() 
+            {
                 const replaceField = document.getElementById("replace");
                 replaceField.disabled = this.value === "";
             });
 
          
             // Find and replace functionality
-            document.getElementById("findAndReplace").addEventListener("click", function() {
+            document.getElementById("findAndReplace").addEventListener("click", function()
+            {
                 const findText = document.getElementById("find").value;
                 const replaceText = document.getElementById("replace").value;
                 const messageTextArea = document.getElementById("message");
                 const regex = new RegExp(findText, "g");
                 const replacementCount = (messageTextArea.value.match(regex) || []).length;
                 messageTextArea.value = messageTextArea.value.replace(regex, replaceText);
-                alert(`Replacements: ${replacementCount}`);
+                
+                document.getElementById("replacementCount").textContent = `Replacements: ${replacementCount}`;
             });
 
 
             // For Translate button 
-            document.getElementById("translate").addEventListener("click", function() {
+            document.getElementById("translate").addEventListener("click", function() 
+            {
                 const messageText = document.getElementById("message").value;
                 const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
                 const targetLanguage = document.getElementById("targetLanguage").value;
@@ -411,15 +398,19 @@
          
          
             // For Reset button
-            document.querySelector("form").addEventListener("reset", function() {
+            document.querySelector("form").addEventListener("reset", function()
+            {
                 document.getElementById("replace").disabled = true;
             });
-        });
+        
+        
+            // Page would not refresh when "Find and Replace " button is pressed
+            document.getElementById("findAndReplace").addEventListener("click", function(event) 
+            {
+                event.preventDefault();
+ 
+            });
+   
     </script>
-    
-    <!--Disable right click on webpage and shortcuts  -->
-    <script src="DisableInspectElement.js"></script>
-  
-    
 </body>
 </html>
