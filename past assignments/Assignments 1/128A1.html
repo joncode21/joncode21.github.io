@@ -48,7 +48,8 @@
         
        
           <tr>
-            <td rowspan="3">Student Number / Name / Email</td>
+              
+            <td rowspan="3">Student Number /<br>Name / Email</td>
             <td>UOW ID 1:8335175</td>
             <td>Name:Lee Wei Rong</td>
             <td>wrl568@uowmail.edu.au</td>
@@ -291,8 +292,12 @@
             </tr>
             <tr>
                 <th></th>
-                <td><button id="findAndReplace">Find and Replace</button></td>
-                <span id="replacementCount"></span>
+                <td>
+                    <div style="width: 200px;">
+                    <button id="findAndReplace">Find and Replace</button>
+                    <span id="replacementCount"></span>
+                    </div>        
+                </td>
             </tr>
             <tr>
                 <th>Source language:</th>
@@ -391,14 +396,16 @@
             // Find and replace functionality
             document.getElementById("findAndReplace").addEventListener("click", function()
             {
-                const findText = document.getElementById("find").value;
-                const replaceText = document.getElementById("replace").value;
-                const messageTextArea = document.getElementById("message");
-                const regex = new RegExp(findText, "g");
-                const replacementCount = (messageTextArea.value.match(regex) || []).length;
-                messageTextArea.value = messageTextArea.value.replace(regex, replaceText);
+               const findText = document.getElementById("find").value;
+               const replaceText = document.getElementById("replace").value;
+               const messageTextArea = document.getElementById("message");
+               const regex = new RegExp(findText, "g");
+               const replacementCount = (messageTextArea.value.match(regex) || []).length;
+               messageTextArea.value = messageTextArea.value.replace(regex, replaceText);
+
+               document.getElementById("replacementCount").textContent = `Number of Replacements: ${replacementCount}`;
                 
-                document.getElementById("replacementCount").textContent = `Replacements: ${replacementCount}`;
+                
             });
 
 
@@ -420,12 +427,12 @@
             });
         
         
-            // Page would not refresh when "Find and Replace " button is pressed
-            document.getElementById("findAndReplace").addEventListener("click", function(event) 
-            {
-                event.preventDefault();
+            // Page would NOT refresh when "Find and Replace " button is pressed
+            //document.getElementById("findAndReplace").addEventListener("click", function(event) 
+            //{
+              //  event.preventDefault();
  
-            });
+    //        });
    
     </script>
 </body>
