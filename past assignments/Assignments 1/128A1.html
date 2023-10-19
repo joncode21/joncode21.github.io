@@ -368,28 +368,35 @@
         // JavaScript code 
         
      
-         // Name Validation
-            const nameInput = document.getElementById("name");
-            const nameErrorMessage = document.createElement("span");
-            nameErrorMessage.style.color = "red";
-            nameErrorMessage.style.display = "none";
-            nameErrorMessage.textContent = "No numbers with name";
-            nameInput.parentElement.appendChild(nameErrorMessage);
+        // Name Validation
+        const nameInput = document.getElementById("name");
+        const nameErrorMessage = document.createElement("span");
+        nameErrorMessage.style.color = "red";
+        nameErrorMessage.style.display = "none";
+        nameErrorMessage.textContent = "Name must not be empty";
+        nameInput.parentElement.appendChild(nameErrorMessage);
 
-            nameInput.addEventListener("input", function()
+        nameInput.addEventListener("input", function () 
+        {
+            const nameValue = this.value;
+            if (nameValue.trim() === "") 
             {
-                const nameValue = this.value;
-                if (/\d/.test(nameValue)) 
-                {
-                    nameErrorMessage.style.display = "block";
-                    this.setCustomValidity("No numbers with name");
-                } 
-                else 
-                {
-                    nameErrorMessage.style.display = "none";
-                    this.setCustomValidity("");
-                }
-            });
+                nameErrorMessage.textContent = "Name must not be empty";
+                nameErrorMessage.style.display = "block";
+                this.setCustomValidity("Name must not be empty");
+            } 
+            else if (/\d/.test(nameValue)) 
+            {
+                nameErrorMessage.textContent = "Name must not contain numbers";
+                nameErrorMessage.style.display = "block";
+                this.setCustomValidity("Name must not contain numbers");
+            } 
+            else 
+            {
+                nameErrorMessage.style.display = "none";
+                this.setCustomValidity("");
+            }
+        });
          
          
          
@@ -432,29 +439,41 @@
 
                document.getElementById("replacementCount").textContent = `Number of Replacements: ${replacementCount}`;
                 
-                
             });
 
 
-            // For Translate button 
-            document.getElementById("translate").addEventListener("click", function() 
+            // For Translate button
+            document.getElementById("translate").addEventListener("click", function (e) 
             {
+                const nameValue = nameInput.value;
+                if (nameValue.trim() === "" || /\d/.test(nameValue)) 
+                {
+                    // If the Name is empty/contains number(s); translate button will not work
+                    e.preventDefault();
+                    nameErrorMessage.style.display = "block";
+                    nameInput.setCustomValidity("Name must be valid");
+                    return;
+                } 
+                else 
+                {
+                    nameErrorMessage.style.display = "none";
+                    nameInput.setCustomValidity("");
+                }
+
                 const messageText = document.getElementById("message").value;
                 const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
                 const targetLanguage = document.getElementById("targetLanguage").value;
+
                 const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
                 window.open(googleTranslateURL);
             });
-         
-         
+
             // For Reset button
             document.querySelector("form").addEventListener("reset", function()
             {
                 document.getElementById("replace").disabled = true;
             });
-        
-  
-   
+
     </script>
 </body>
 </html>
