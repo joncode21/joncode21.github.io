@@ -440,7 +440,7 @@
             }
         });*/
 
-        function validateName()
+            function validateName()
             {
                 var nameInput = document.getElementById("nameError").value;
                 if(/\d/.test(nameInput)==false)
@@ -464,12 +464,12 @@
             return true; 
             }
 
-        function validateModuleCode()
+            function validateModuleCode()
             {
                 var moduleInput = document.getElementById("moduleCode").value;
-                if(/^[0-5]{3}, [a-z]{3}$/.test(moduleInput)==false)
+                if(/[0-5]{3}[a-z]{3}/.test(moduleInput)==false)
                 {
-                    document.getElementById("moduleCodeError").innerHTML = "example of module code 123abc";
+                    document.getElementById("moduleCodeError").innerHTML = "Must start with 3 digits (0 to 5) and 3 lower case alphabets";
                     return false;  
                 }
                 else
