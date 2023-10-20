@@ -7,36 +7,20 @@
 
     <!--CSS-->
     <style>
-        table 
-		{
-            width: 100%;
-            border-collapse: collapse;
-        }
-		
-        th, td, tr
-		{
-            border: 1.5px solid black;
-            padding: 15px;
-            text-align: left;
-        }
-		
-        th 
-		{
-            background-color: #c3d3e3;
-        }
-		
-		.codingCode
-        {
-            position: relative;
-            left: -250px;
-            display: inline-block;
-        }
 
-        .introduction-table
+        /*Part 1 CSS*/
+        .introduction
         {
             max-width: 750px;
             justify-content: center;
             align-items: center;
+        }
+
+        .introductionTable 
+		{
+            width: 100%;
+            border-collapse: collapse;
+            border: double;
         }
 
         .introduction-header
@@ -44,7 +28,115 @@
             font-size: 20px;
             text-align: center;
             font-weight: bold;
+            border: double;
         }
+
+        th.introduction-header
+		{
+            background-color: #c3d3e3;
+            border: double;
+        }
+
+        tr.introductionTable
+        {
+            /*border: 1px solid black;*/
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: left;
+        }
+
+        tr.introductionTableRow td
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: left;
+            border: double;
+        }
+
+        tr.introductionTable th
+        {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: left;
+            border: double;
+        }
+	
+
+        /*Part 2 CSS*/
+        .codingCode
+        {
+            position: relative;
+            left: -250px;
+            display: inline-block;
+        }
+
+        /*Part 3 CSS */
+        .contactDetailsTable 
+        {
+            border-collapse: collapse;
+            width: 27%; /* Optional: Make the table fill its container */
+            border: double;
+
+        }
+
+        .contactDetailsData 
+        {
+            border: 1px solid black; /* Add a border to each td */
+            padding: 5px; /* Optional: Add padding for spacing */
+            text-align: left; /* Optional: Adjust text alignment */
+            border-collapse: collapse;
+            border: double;
+
+        }
+
+        .contactDetailsData b 
+        {
+            font-weight: bold; /* Style the bold text within td */
+        }
+       
+
+       
+        /*Part4 CSS*/
+
+        th.formHeader
+        {
+            text-align: left;
+            width: 15%;
+            background-color: #c3d3e3;
+            border-style: ridge;
+        }
+
+        /*.formData td
+        {
+            text-align: left;
+            width: 15%;
+            border-style: 4px ridge;
+        }*/
+
+        tr.formRow td
+        {
+            border-style: ridge;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: left;
+        }
+
+
+        #myForm
+        {
+            width: 60%;
+            border-style: solid;
+            border-collapse: collapse;
+        }
+
+        tr.formRow
+        {
+            border-style: 4px ridge;
+        }
+
+    
 		
 		
     </style>
@@ -53,32 +145,28 @@
     
     <!--HTML-->
 <body>
-<div class="introduction-table">
-    <table>
-        <tr>
+<div class="introduction">
+    <table class="introductionTable">
+        <tr class="introductionTableRow">
             <th colspan="3" class="introduction-header">CSIT128: Assignment 1</th>
             <th colspan="0" class="introduction-header">Group T07 G10</th>
           
         </tr>
-        
-       
-          <tr>
-              
-            <td rowspan="3">Student Number /<br>Name / Email</td>
+    
+        <tr class="introductionTableRow">
+            <td rowspan="3">Student Number/<br>Name / Email</td>
             <td>UOW ID 1:8335175</td>
             <td>Name:Lee Wei Rong</td>
             <td>wrl568@uowmail.edu.au</td>
         </tr>
         
-        <tr>
-            
+        <tr class="introductionTableRow">
             <td>UOW ID 2:8379014</td>
             <td>Name:Ng Wen Xiang Darren</td>
             <td>wxdn990@uowmail.edu.au</td>
         </tr>
         
-        <tr>
-          
+        <tr class="introductionTableRow">
             <td>UOW ID 3:8561539</td>
             <td>Name:Velasquez Juan Miguel Dolaoco</td>
             <td>jmdv992@uowmail.edu.au</td>
@@ -88,24 +176,12 @@
 </div>
     
 <!-- PART 2-->
-    
-    <html><h1><b>Part 2: Hello World Program in different languages</b></h1></html>
-    
-    <!--Coding Links Only-->
-    <p><a href="#c++" target="_self">C++</a></p>
-    
-    <p><a href="#c#" target="_self">C#</a></p>
-    
-    <p><a href="#python" target="_self">Python</a></p>
-    
-    <p><a href="#html" target="_self">HTML</a></p>
-   
-    <hr />
-     <!--Coding Links Only-->
-    
-<html>
-
-<body>
+<h1><b>Part 2: Hello World Program in different languages</b></h1>   
+<p><a href="#c++" target="_self">C++</a></p> 
+<p><a href="#c#" target="_self">C#</a></p>  
+<p><a href="#python" target="_self">Python</a></p>  
+<p><a href="#html" target="_self">HTML</a></p>  
+<hr /> 
 	<div>
 	<h4 id="c++">C++</h4>
 		<div class="codingLanguage">
@@ -181,31 +257,8 @@
 	</div>
     <hr>
    
-    
-</body>
-</html>
-
-<html>
-<head>
-    <style>
-        table.contactDetailsInformation
-        {
-            width: 27%;
-            border-style: double;
-        }
-
-        tr, td
-        {
-            border-style: double;
-        }
-
-
-    </style>
-</head>
 
 <!-- PART 3-->
-<body>
-
     <div class="policy&ServiceInfo">
 
       <h1><b>Part 3:University policies and services</b></h1>
@@ -240,9 +293,9 @@
             </br>
             Student Support Adviser contact details for Faculty of Engineering and Information Sciences:
 
-            <table class="contactDetailsInformation"> 
-             <tr>
-                <td>
+            <table class="contactDetailsTable"> 
+             <tr class="contactDetailsRow">
+                <td class="contactDetailsData">
                 <b>Ann-Maree Smith</b></br>
                 Bld 40:133, Wollongong</br>
                 Campus</br>
@@ -250,7 +303,8 @@
                 Mon-Fri</br>
                 arms@uow.edu.au</br>
                 </td>
-                <td>
+
+                <td class="contactDetailsData">
                 <b>Mitz Perez</b></br>
                 Bld 4:105, Wollongong</br>
                 Campus </br>
@@ -269,65 +323,51 @@
             the primary careres for those with a medical condition or disability. </br>
             Please click <a href="https://www.uow.edu.au/student/" target="_blank">here</a> to read more about Disability Services.</br>
         </dl>
-    </div>
-</body>
-</html>   
-    
+    </div>   
+
 <!-- PART 4-->
-    <html><h1><b>Part 4:Form</b></h1></html>
- <style>
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            text-align: left;
-        }
-    </style>
-</head>
-<body>
+<h1><b>Part 4:Form</b></h1>
     <form id="myForm">
-        <table>
-            <tr>
-                <th>Name:</th>
-                <td><input type="text" id="name" pattern="[^0-9]*" required></td>
+        <table class="tableForm">
+            <tr class="formRow">
+                <th class="formHeader">Name:</th>
+                <td><input type="text" id="name" onChange="validateName()"required>
+                <span id="nameError" style="color:red"></span>           
+                </td>               
             </tr>
-            <tr>
-                <th>Module code:</th>
-                <td><input type="text" id="moduleCode" pattern="[0-5]{3}[a-z]{3}"></td>
+            <tr class="formRow">
+                <th class="formHeader">Module code:</th>
+                <td><input type="text" id="moduleCode" pattern="[0-5]{3}[a-z]{3}" onChange="validateModuleCode()"required>
+                <span id="moduleCodeError" style="color:red"></span>           
+                </td>               
             </tr>
-            <tr>
-                <th>Current date:</th>
+            <tr class="formRow">
+                <th class="formHeader">Current date:</th>
                 <td><input type="text" id="currentDate" readonly></td>
             </tr>
-            <tr>
-                <th>Message:</th>
+            <tr class="formRow">
+                <th class="formHeader">Message:</th>
                 <td><textarea id="message" rows="3" cols="20">Hello 202309</textarea></td>
             </tr>
-            <tr>
-                <th>Find:</th>
+            <tr class="formRow">
+                <th class="formHeader">Find:</th>
                 <td><input type="text" id="find"></td>
             </tr>
-            <tr>
-                <th>Replace:</th>
+            <tr class="formRow">
+                <th class="formHeader">Replace:</th>
                 <td><input type="text" id="replace" enabled></td>
             </tr>
-            <tr>
-                <th></th>
+            <tr class="formRow">
+                <th class="formHeader"></th>
                 <td>
                     <div style="width: 200px;">
-                    <button id="findAndReplace">Find and Replace</button>
+                    <button id="findAndReplace" type="button">Find and Replace</button> <!--TYPE="BUTTON" IS NEEDED HERE DONT FORGET-->
                     <span id="replacementCount"></span>
                     </div>        
                 </td>
             </tr>
-            <tr>
-                <th>Source language:</th>
+            <tr class="formRow">
+                <th class="formHeader">Source language:</th>
                 <td>
                     <input type="radio" id="english" name="sourceLanguage" value="English" checked>
                     <label for="english">English</label>
@@ -339,8 +379,8 @@
                     
                 </td>
             </tr>
-            <tr>
-                <th>Target language:</th>
+            <tr class="formRow">
+                <th class="formHeader">Target language:</th>
                 <td>
                     <select id="targetLanguage">
                         <option value="Japanese" selected>Japanese</option>
@@ -350,8 +390,8 @@
                     </select>
                 </td>
             </tr>
-            <tr>
-                <th></th>
+            <tr class="formRow">
+                <th class="formHeader"></th>
                 <td>
                     <button type="button" id="translate">Translate</button>
                     <button type="reset">Reset</button>
@@ -364,15 +404,17 @@
     
 <!--JAVASCRIPT-->
 
-    <script>
+<script>
         // JavaScript code 
         
      
-        // Name Validation
+        /* Name Validation
         const nameInput = document.getElementById("name");
         const nameErrorMessage = document.createElement("span");
         nameErrorMessage.style.color = "red";
         nameErrorMessage.style.display = "none";
+        nameErrorMessage.style.paddingLeft = "50px";
+        nameErrorMessage.style.textAlign = "center";
         nameErrorMessage.textContent = "Name must not be empty";
         nameInput.parentElement.appendChild(nameErrorMessage);
 
@@ -396,7 +438,47 @@
                 nameErrorMessage.style.display = "none";
                 this.setCustomValidity("");
             }
-        });
+        });*/
+
+        function validateName()
+            {
+                var nameInput = document.getElementById("nameError").value;
+                if(/\d/.test(nameInput)==false)
+                {
+                    document.getElementById("nameError").innerHTML = "Names should not have numbers";
+                    return false;  
+                }
+
+                /*else if (nameValue.trim() === "")
+                {
+                    document.getElementById("nameError").innerHTML = "Name should not be empty";
+                    nameError.style.display = "block"
+                    this.setCustomValidity("Name should not be empty")
+                    return false;
+                }*/
+                else
+                {
+                      document.getElementById("nameError").innerHTML = "";   
+                }
+
+            return true; 
+            }
+
+        function validateModuleCode()
+            {
+                var moduleInput = document.getElementById("moduleCode").value;
+                if(/^[0-5]{3}, [a-z]{3}$/.test(moduleInput)==false)
+                {
+                    document.getElementById("moduleCodeError").innerHTML = "example of module code 123abc";
+                    return false;  
+                }
+                else
+                {
+                      document.getElementById("moduleCodeError").innerHTML = "";   
+                }
+
+            return true; 
+            }
          
          
          
@@ -439,8 +521,8 @@
 
                document.getElementById("replacementCount").textContent = `Number of Replacements: ${replacementCount}`;
                 
+                
             });
-
 
             // For Translate button
             document.getElementById("translate").addEventListener("click", function (e) 
@@ -448,9 +530,9 @@
                 const nameValue = nameInput.value;
                 if (nameValue.trim() === "" || /\d/.test(nameValue)) 
                 {
-                    // If the Name is empty/contains number(s); translate button will not work
+                    // Name is empty or contains numbers; prevent translation and show error
                     e.preventDefault();
-                    nameErrorMessage.style.display = "block";
+                    nameError.style.display = "block";
                     nameInput.setCustomValidity("Name must be valid");
                     return;
                 } 
@@ -467,13 +549,9 @@
                 const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
                 window.open(googleTranslateURL);
             });
-
-            // For Reset button
-            document.querySelector("form").addEventListener("reset", function()
-            {
-                document.getElementById("replace").disabled = true;
-            });
-
-    </script>
+        
+  
+   
+</script>
 </body>
 </html>
