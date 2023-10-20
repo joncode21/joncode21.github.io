@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<forecast queryTime="31/7/2023 2:30 PM" queryLocation="Singapore">
+  <weather yyyymmdd="20230531">
+    <year>2023</year>	
+    <month>5</month>
+    <date>31</date>
+    <dayOfWeek>Wed</dayOfWeek> 
+    <overall>Considerable clouds</overall>
+    <overallCode>cloudy</overallCode>
+    <highest>30</highest>
+    <lowest>29</lowest>
+  </weather>
+  <weather yyyymmdd="20230615">
+    <year>2023</year>	
+    <month>6</month>
+    <date>15</date>
+    <dayOfWeek>Thu</dayOfWeek> 
+    <overall>Cloudy with a thunderstorm</overall>
+    <overallCode>thunderstorm</overallCode>
+    <highest>29</highest>
+    <lowest>26</lowest>
+  </weather>
+  <weather yyyymmdd="20230505">
+    <year>2023</year>	
+    <month>5</month>
+    <date>5</date>
+    <dayOfWeek>Fri</dayOfWeek> 
+    <overall>Afternoon shower</overall>
+    <overallCode>rain</overallCode>
+    <highest>33</highest>
+    <lowest>28</lowest>
+  </weather>
+  <weather yyyymmdd="20230709">
+    <year>2023</year>	
+    <month>7</month>
+    <date>9</date>
+    <dayOfWeek>Sun</dayOfWeek> 
+    <overall>A morning shower, then rain</overall>
+    <overallCode>rain</overallCode>
+    <highest>35</highest>
+    <lowest>30</lowest>
+  </weather>
+  <weather yyyymmdd="20230410">
+    <year>2023</year>	
+    <month>4</month>
+    <date>10</date>
+    <dayOfWeek>Mon</dayOfWeek> 
+    <overall>Partly sunny</overall>
+    <overallCode>partlySunny</overallCode>
+    <highest>33</highest>
+    <lowest>31</lowest>
+  </weather>
+  <weather yyyymmdd="20230608">
+    <year>2023</year>	
+    <month>6</month>
+    <date>8</date>
+    <dayOfWeek>Thu</dayOfWeek> 
+    <overall>Plenty of sunshine</overall>
+    <overallCode>sunny</overallCode>
+    <highest>35</highest>
+    <lowest>32</lowest>
+  </weather>
+</forecast>
