@@ -342,8 +342,11 @@
                 </td>               
             </tr>
             <tr class="formRow">
+                  
                 <th class="formHeader">Current date:</th>
-                <td><input type="text" id="currentDate" readonly></td>
+             <div style="width: 600px;">
+                <td><input type="text" id="currentDate" readonly style="width: 205px;"> </td>
+                </div>
             </tr>
             <tr class="formRow">
                 <th class="formHeader">Message:</th>
@@ -369,11 +372,11 @@
             <tr class="formRow">
                 <th class="formHeader">Source language:</th>
                 <td>
-                    <input type="radio" id="english" name="sourceLanguage" value="English" checked>
+                    <input type="radio" id="english" name="sourceLanguage" value="en" checked>
                     <label for="english">English</label>
                     
                     
-                    <input type="radio" id="malay" name="sourceLanguage" value="Malay">
+                    <input type="radio" id="malay" name="sourceLanguage" value="ms">
                     <label for="malay">Malay</label>
                     
                     
@@ -383,10 +386,10 @@
                 <th class="formHeader">Target language:</th>
                 <td>
                     <select id="targetLanguage">
-                        <option value="Japanese" selected>Japanese</option>
-                        <option value="Chinese">Chinese</option>
-                        <option value="Malay">Malay</option>
-                        <option value="Korean">Korean</option>
+                        <option value="ja" selected>Japanese</option>
+                        <option value="zh-CN">Chinese</option>
+                        <option value="ms">Malay</option>
+                        <option value="ko">Korean</option>
                     </select>
                 </td>
             </tr>
@@ -525,28 +528,19 @@
             });
 
             // For Translate button
-            document.getElementById("translate").addEventListener("click", function (e) 
+            document.getElementById("translate").addEventListener("click", function () 
             {
-                const nameValue = nameInput.value;
-                if (nameValue.trim() === "" || /\d/.test(nameValue)) 
-                {
-                    // Name is empty or contains numbers; prevent translation and show error
-                    e.preventDefault();
-                    nameError.style.display = "block";
-                    nameInput.setCustomValidity("Name must be valid");
-                    return;
-                } 
-                else 
-                {
-                    nameErrorMessage.style.display = "none";
-                    nameInput.setCustomValidity("");
-                }
+               
 
                 const messageText = document.getElementById("message").value;
-                const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
-                const targetLanguage = document.getElementById("targetLanguage").value;
-
+                
+                   const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
+                
+                    const targetLanguage = document.getElementById("targetLanguage").value;
+                
                 const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
+                
+                
                 window.open(googleTranslateURL);
             });
         
