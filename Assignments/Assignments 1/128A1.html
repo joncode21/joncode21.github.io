@@ -11,7 +11,7 @@
         /*Part 1 CSS*/
         .introduction
         {
-            max-width: 750px;
+            max-width: 780px;
             justify-content: center;
             align-items: center;
         }
@@ -29,6 +29,8 @@
             text-align: center;
             font-weight: bold;
             border: double;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         th.introduction-header
@@ -75,10 +77,9 @@
         /*Part 3 CSS */
         .contactDetailsTable 
         {
+            min-width: 370px;         
             border-collapse: collapse;
-            width: 27%; /* Optional: Make the table fill its container */
             border: double;
-
         }
 
         .contactDetailsData 
@@ -225,13 +226,16 @@
         <h4 id="python">Python</h4>
 		<div class ="codingLanguage">
 			<img src="Python-Language.jpg" width="170" height="150" alt="Python logo">
-				<div class="codingCode">
+                <div class="codingCode">
 				<pre>
-					# Hello World program in Python
+
+				        # Hello World program in Python
 					
 					
-					print("Hello World!")						    
+				        print("Hello World!")
+
 				</pre>  
+			    </div> 
 			</div>
 		</div>          
     </div>
@@ -350,7 +354,10 @@
             </tr>
             <tr class="formRow">
                 <th class="formHeader">Message:</th>
-                <td><textarea id="message" rows="3" cols="20">Hello 202309</textarea></td>
+                <td>
+                <textarea id="message" rows="3" cols="20" onChange="validateMessage()">Hello 202309</textarea>
+                <span id="messageError" style="color:red"></span>
+                </td>
             </tr>
             <tr class="formRow">
                 <th class="formHeader">Find:</th>
@@ -408,141 +415,127 @@
 <!--JAVASCRIPT-->
 
 <script>
-        // JavaScript code 
-        
-     
-        /* Name Validation
-        const nameInput = document.getElementById("name");
-        const nameErrorMessage = document.createElement("span");
-        nameErrorMessage.style.color = "red";
-        nameErrorMessage.style.display = "none";
-        nameErrorMessage.style.paddingLeft = "50px";
-        nameErrorMessage.style.textAlign = "center";
-        nameErrorMessage.textContent = "Name must not be empty";
-        nameInput.parentElement.appendChild(nameErrorMessage);
-
-        nameInput.addEventListener("input", function () 
+        // JavaScript code
+        function validateName() 
         {
-            const nameValue = this.value;
-            if (nameValue.trim() === "") 
-            {
-                nameErrorMessage.textContent = "Name must not be empty";
-                nameErrorMessage.style.display = "block";
-                this.setCustomValidity("Name must not be empty");
-            } 
-            else if (/\d/.test(nameValue)) 
-            {
-                nameErrorMessage.textContent = "Name must not contain numbers";
-                nameErrorMessage.style.display = "block";
-                this.setCustomValidity("Name must not contain numbers");
-            } 
-            else 
-            {
-                nameErrorMessage.style.display = "none";
-                this.setCustomValidity("");
-            }
-        });*/
+            var nameInput = document.getElementById("name").value;
+                var nameError = document.getElementById("nameError");
 
-            function validateName()
-            {
-                var nameInput = document.getElementById("nameError").value;
-                if(/\d/.test(nameInput)==false)
+                if (nameInput.trim() === "") 
                 {
-                    document.getElementById("nameError").innerHTML = "Names should not have numbers";
-                    return false;  
-                }
-
-                /*else if (nameValue.trim() === "")
-                {
-                    document.getElementById("nameError").innerHTML = "Name should not be empty";
-                    nameError.style.display = "block"
-                    this.setCustomValidity("Name should not be empty")
+                    nameError.innerHTML = "Name must not be empty";
                     return false;
-                }*/
-                else
+                } 
+                else if (/\d/.test(nameInput)) 
                 {
-                      document.getElementById("nameError").innerHTML = "";   
+                    nameError.innerHTML = "Names should not have numbers";
+                    return false;
+                } 
+                else 
+                {
+                    nameError.innerHTML = "";
                 }
 
-            return true; 
+            return true;         
+        }
+            
+        function validateModuleCode()
+        {
+            var moduleInput = document.getElementById("moduleCode").value;
+            if(/[0-5]{3}[a-z]{3}/.test(moduleInput)==false)
+            {
+                document.getElementById("moduleCodeError").innerHTML = "Must start with 3 digits (0 to 5) and 3 lower case alphabets";
+                return false;  
+            }
+            else
+            {
+                document.getElementById("moduleCodeError").innerHTML = "";   
             }
 
-            function validateModuleCode()
-            {
-                var moduleInput = document.getElementById("moduleCode").value;
-                if(/[0-5]{3}[a-z]{3}/.test(moduleInput)==false)
-                {
-                    document.getElementById("moduleCodeError").innerHTML = "Must start with 3 digits (0 to 5) and 3 lower case alphabets";
-                    return false;  
-                }
-                else
-                {
-                      document.getElementById("moduleCodeError").innerHTML = "";   
-                }
+        return true;                
+        }
 
-            return true; 
-            }
-         
-         
-         
-            // Update current date and time  box
-             function getCurrentDate() 
-            {
-              var now = new Date();
-              var day = now.toLocaleDateString('en-US', {weekday: 'long'});
-              var month = now.toLocaleDateString('en-US', {month: 'long'});
-              var hour = now.getHours();
-              var minute = now.getMinutes();
-              var amOrPm = hour>=12 ? 'PM':'AM';    
-              var twelveHourFormat=hour % 12 || 12;
+
+        // Update current date and time  box
+        function getCurrentDate() 
+        {
+            var now = new Date();
+            var day = now.toLocaleDateString('en-US', {weekday: 'long'});
+            var month = now.toLocaleDateString('en-US', {month: 'long'});
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var amOrPm = hour>=12 ? 'PM':'AM';    
+            var twelveHourFormat=hour % 12 || 12;
                 
 
-              return `${now.getDate()} ${month} ${now.getFullYear()},${day},${twelveHourFormat}:${minute < 10 ? '0' + minute : minute} ${amOrPm}`;
+            return `${now.getDate()} ${month} ${now.getFullYear()},${day},${twelveHourFormat}:${minute < 10 ? '0' + minute : minute} ${amOrPm}`;
                         
-            }
+        }
             
-            document.getElementById("currentDate").value = getCurrentDate();
+        document.getElementById("currentDate").value = getCurrentDate();
+        
             
 
-            // Toggle replace field based on find input
-            document.getElementById("find").addEventListener("input", function() 
+
+
+        function validateMessage()
+        {
+            var messageInput = document.getElementById("message").value;
+            var messageError = document.getElementById("messageError");
+
+            if(messageInput.trim() =="")
             {
-                const replaceField = document.getElementById("replace");
-                replaceField.disabled = this.value === "";
-            });
+                messageError.innerHTML = "Message cannot empty";
+                return false;
+
+            }
+            else
+            {
+                messageError.innerHTML = ""; 
+            }
+        return true;
+        }
+            
+
+        // Toggle replace field based on find input
+        document.getElementById("find").addEventListener("input", function() 
+        {
+            const replaceField = document.getElementById("replace");
+            replaceField.disabled = this.value === "";
+        });
 
          
-            // Find and replace functionality
-            document.getElementById("findAndReplace").addEventListener("click", function()
-            {
-               const findText = document.getElementById("find").value;
-               const replaceText = document.getElementById("replace").value;
-               const messageTextArea = document.getElementById("message");
-               const regex = new RegExp(findText, "g");
-               const replacementCount = (messageTextArea.value.match(regex) || []).length;
-               messageTextArea.value = messageTextArea.value.replace(regex, replaceText);
+        // Find and replace functionality
+        document.getElementById("findAndReplace").addEventListener("click", function()
+        {
+            const findText = document.getElementById("find").value;
+            const replaceText = document.getElementById("replace").value;
+            const messageTextArea = document.getElementById("message");
+            const regex = new RegExp(findText, "g");
+            const replacementCount = (messageTextArea.value.match(regex) || []).length;
+            messageTextArea.value = messageTextArea.value.replace(regex, replaceText);
 
-               document.getElementById("replacementCount").textContent = `Number of Replacements: ${replacementCount}`;
+            document.getElementById("replacementCount").textContent = `Number of Replacements: ${replacementCount}`;
                 
                 
-            });
+        });
 
-            // For Translate button
-            document.getElementById("translate").addEventListener("click", function () 
-            {
+        // For Translate button
+        document.getElementById("translate").addEventListener("click", function () 
+        {
                
 
-                const messageText = document.getElementById("message").value;
+            const messageText = document.getElementById("message").value;
                 
-                   const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
+            const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
                 
-                    const targetLanguage = document.getElementById("targetLanguage").value;
+            const targetLanguage = document.getElementById("targetLanguage").value;
                 
-                const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
+            const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
                 
                 
-                window.open(googleTranslateURL);
-            });
+            window.open(googleTranslateURL);
+        });
         
   
    
