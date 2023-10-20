@@ -10,6 +10,7 @@
     <highest>30</highest>
     <lowest>29</lowest>
   </weather>
+  
   <weather yyyymmdd="20230615">
     <year>2023</year>	
     <month>6</month>
