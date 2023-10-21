@@ -41,7 +41,6 @@
 
         tr.introductionTable
         {
-            /*border: 1px solid black;*/
             border-collapse: collapse;
             padding: 10px;
             text-align: left;
@@ -86,9 +85,9 @@
 
         .contactDetailsData 
         {
-            border: 1px solid black; /* Add a border to each td */
-            padding: 5px; /* Optional: Add padding for spacing */
-            text-align: left; /* Optional: Adjust text alignment */
+            border: 1px solid black; 
+            padding: 5px; 
+            text-align: left; 
             border-collapse: collapse;
             border: double;
 
@@ -96,7 +95,7 @@
 
         .contactDetailsData b 
         {
-            font-weight: bold; /* Style the bold text within td */
+            font-weight: bold; 
         }
        
 
@@ -111,12 +110,6 @@
             border-style: ridge;
         }
 
-        /*.formData td
-        {
-            text-align: left;
-            width: 15%;
-            border-style: 4px ridge;
-        }*/
 
         tr.formRow td
         {
@@ -372,7 +365,7 @@
                 <th class="formHeader"></th>
                 <td>
                     <div style="width: 200px;">
-                    <button id="findAndReplace" type="button">Find and Replace</button> <!--TYPE="BUTTON" IS NEEDED HERE DONT FORGET-->
+                    <button id="findAndReplace" type="button">Find and Replace</button>
                     <span id="replacementCount"></span>
                     </div>        
                 </td>
@@ -443,16 +436,22 @@
         function validateModuleCode()
         {
             var moduleInput = document.getElementById("moduleCode").value;
-            if(/[0-5]{3}[a-z]{3}/.test(moduleInput)==false)
+            if(moduleInput.trim()=="")
             {
-                document.getElementById("moduleCodeError").innerHTML = "Must start with 3 digits (0 to 5) and 3 lower case alphabets";
-                return false;  
+                document.getElementById("moduleCodeError").innerHTML = "";  
             }
             else
             {
-                document.getElementById("moduleCodeError").innerHTML = "";   
+                if(/[0-5]{3}[a-z]{3}/.test(moduleInput)==false)
+                {
+                    document.getElementById("moduleCodeError").innerHTML = "Must start with 3 digits (0 to 5) and 3 lower case alphabets";
+                    return false;  
+                }
+                else
+                {
+                    document.getElementById("moduleCodeError").innerHTML = "";  
+                }
             }
-
         return true;                
         }
 
@@ -522,21 +521,32 @@
         });
 
         // For Translate button
-        document.getElementById("translate").addEventListener("click", function () 
-        {
-               
+        document.getElementById("translate").addEventListener("click", function (e) 
+            {
+                const nameInput = document.getElementById("name");
+                const nameError = document.getElementById("nameError");
+                
+                const nameValue = nameInput.value;
+                if (nameValue.trim() === "" || /\d/.test(nameValue)) 
+                {
+                    // if the name is not validated, this prevents the button from working
+                    e.preventDefault();
+                    nameError.innerHTML = "Name must be valid";
+                    return;
+                } 
+                else 
+                {
+                    nameError.style.display = "none";
+                    nameInput.setCustomValidity("");
+                }
 
-            const messageText = document.getElementById("message").value;
-                
-            const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
-                
-            const targetLanguage = document.getElementById("targetLanguage").value;
-                
-            const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
-                
-                
-            window.open(googleTranslateURL);
-        });
+                const messageText = document.getElementById("message").value;
+                const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
+                const targetLanguage = document.getElementById("targetLanguage").value;
+
+                const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
+                window.open(googleTranslateURL);
+            });
         
   
    
