@@ -342,7 +342,7 @@
             </tr>
             <tr class="formRow">
                 <th class="formHeader">Module code:</th>
-                <td><input type="text" id="moduleCode" pattern="[0-5]{3}[a-z]{3}" onChange="validateModuleCode()"required>
+                <td><input type="text" id="moduleCode" pattern="[0-5]{3}[a-z]{3}" onChange="validateModuleCode()">
                 <span id="moduleCodeError" style="color:red"></span>           
                 </td>               
             </tr>
@@ -356,7 +356,7 @@
             <tr class="formRow">
                 <th class="formHeader">Message:</th>
                 <td>
-                <textarea id="message" rows="3" cols="20" onChange="validateMessage()">Hello 202309</textarea>
+                <textarea id="message" rows="3" cols="20" onChange="validateMessage()" required>Hello 202309</textarea>
                 <span id="messageError" style="color:red"></span>
                 </td>
             </tr>
