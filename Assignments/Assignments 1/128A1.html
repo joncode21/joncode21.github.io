@@ -524,20 +524,32 @@
         });
 
         // For Translate button
-    
-        document.getElementById("translate").addEventListener("click", function () 
-        {
-             var messageText = document.getElementById("message").value;
+        document.getElementById("translate").addEventListener("click", function (e) 
+            {
+                const nameInput = document.getElementById("name");
+                const nameError = document.getElementById("nameError");
                 
-             var sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
-                
-             var targetLanguage = document.getElementById("targetLanguage").value;
-                
-             var googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
-                
-                
-            window.open(googleTranslateURL);
-        });
+                const nameValue = nameInput.value;
+                if (nameValue.trim() === "" || /\d/.test(nameValue)) 
+                {
+                    // Name is empty or contains numbers; prevent translation and show error
+                    e.preventDefault();
+                    nameError.innerHTML = "Name must be valid";
+                    return;
+                } 
+                else 
+                {
+                    nameError.style.display = "none";
+                    nameInput.setCustomValidity("");
+                }
+
+                const messageText = document.getElementById("message").value;
+                const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
+                const targetLanguage = document.getElementById("targetLanguage").value;
+
+                const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
+                window.open(googleTranslateURL);
+            });
         
   
    
