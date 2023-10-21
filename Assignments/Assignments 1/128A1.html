@@ -528,13 +528,11 @@
     
         document.getElementById("translate").addEventListener("click", function () 
         {
-               
-
-             var  messageText = document.getElementById("message").value;
+             var messageText = document.getElementById("message").value;
                 
-             var  sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
+             var sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
                 
-             var  targetLanguage = document.getElementById("targetLanguage").value;
+             var targetLanguage = document.getElementById("targetLanguage").value;
                 
              var googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
                 
