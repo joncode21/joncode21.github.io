@@ -313,6 +313,7 @@
              </tr>
             </table>
       
+
             </br>
             <dt><b>DISABILITY SERVICES</b></dt>
             <dd>
@@ -457,6 +458,7 @@
 
 
         // Update current date and time  box
+    
         function getCurrentDate() 
         {
             var now = new Date();
@@ -500,19 +502,20 @@
         // Toggle replace field based on find input
         document.getElementById("find").addEventListener("input", function() 
         {
-            const replaceField = document.getElementById("replace");
+             var replaceField = document.getElementById("replace");
             replaceField.disabled = this.value === "";
         });
 
          
         // Find and replace functionality
+    
         document.getElementById("findAndReplace").addEventListener("click", function()
         {
-            const findText = document.getElementById("find").value;
-            const replaceText = document.getElementById("replace").value;
-            const messageTextArea = document.getElementById("message");
-            const regex = new RegExp(findText, "g");
-            const replacementCount = (messageTextArea.value.match(regex) || []).length;
+            var findText = document.getElementById("find").value;
+            var replaceText = document.getElementById("replace").value;
+            var messageTextArea = document.getElementById("message");
+            var regex = new RegExp(findText, "g");
+            var replacementCount = (messageTextArea.value.match(regex) || []).length;
             messageTextArea.value = messageTextArea.value.replace(regex, replaceText);
 
             document.getElementById("replacementCount").textContent = `Number of Replacements: ${replacementCount}`;
@@ -521,32 +524,20 @@
         });
 
         // For Translate button
-        document.getElementById("translate").addEventListener("click", function (e) 
-            {
-                const nameInput = document.getElementById("name");
-                const nameError = document.getElementById("nameError");
+    
+        document.getElementById("translate").addEventListener("click", function () 
+        {
+             var messageText = document.getElementById("message").value;
                 
-                const nameValue = nameInput.value;
-                if (nameValue.trim() === "" || /\d/.test(nameValue)) 
-                {
-                    // if the name is not validated, this prevents the button from working
-                    e.preventDefault();
-                    nameError.innerHTML = "Name must be valid";
-                    return;
-                } 
-                else 
-                {
-                    nameError.style.display = "none";
-                    nameInput.setCustomValidity("");
-                }
-
-                const messageText = document.getElementById("message").value;
-                const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
-                const targetLanguage = document.getElementById("targetLanguage").value;
-
-                const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
-                window.open(googleTranslateURL);
-            });
+             var sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
+                
+             var targetLanguage = document.getElementById("targetLanguage").value;
+                
+             var googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
+                
+                
+            window.open(googleTranslateURL);
+        });
         
   
    
