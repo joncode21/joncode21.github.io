@@ -453,7 +453,7 @@
         }
 
 
-        // Update current date and time  box    
+        // Update current date and time box
         function getCurrentDate() 
         {
             var now = new Date();
@@ -463,10 +463,12 @@
             var minute = now.getMinutes();
             var amOrPm = hour>=12 ? 'PM':'AM';    
             var twelveHourFormat=hour % 12 || 12;
-                
 
-            return `${now.getDate()} ${month} ${now.getFullYear()},${day},${twelveHourFormat}:${minute < 10 ? '0' + minute : minute} ${amOrPm}`;
-                        
+            // Get the last two digits of the year
+            var year = now.getFullYear().toString().slice(-2);    
+
+            return `${now.getDate()} ${month} ${year} ${day} ${twelveHourFormat}:${minute < 10 ? '0' + minute : minute} ${amOrPm}`;
+            
         }
             
         document.getElementById("currentDate").value = getCurrentDate();
@@ -541,10 +543,17 @@
             // To reset the specified element IDs
             document.getElementById("name").value = "";
             document.getElementById("moduleCode").value = "";
+            document.getElementById("message").value = "Hello 202309";
+            document.getElementById("find").value = "";
+            document.getElementById("replace").value = "";
+           
 
             // To clear the error messages
             document.getElementById("nameError").textContent = "";
             document.getElementById("moduleCodeError").textContent = "";
+            document.getElementById("messageError").textContent = "";
+            document.getElementById("replacementCount").textContent = "";
+            
         });
    
 </script>
