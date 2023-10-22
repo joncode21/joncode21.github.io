@@ -370,7 +370,7 @@
                 <td>
                     <div style="width: 200px;">
                     <button id="findAndReplace" type="button">Find and Replace</button>
-                    <span id="replacementCount"></span>
+                    <span id=" countNoOfReplacements"></span>
                     </div>        
                 </td>
             </tr>
@@ -517,11 +517,12 @@
             var findText = document.getElementById("find").value;
             var replaceText = document.getElementById("replace").value;
             var messageTextArea = document.getElementById("message");
-            var regex = new RegExp(findText, "g");
-            var replacementCount = (messageTextArea.value.match(regex) || []).length;
-            messageTextArea.value = messageTextArea.value.replace(regex, replaceText);
+            var globalSearch = new RegExp(findText, "g");
+            var countNoOfReplacements = (messageTextArea.value.match(globalSearch) || []).length;
+            
+            messageTextArea.value = messageTextArea.value.replace(globalSearch, replaceText);
 
-            document.getElementById("replacementCount").textContent = `Number of Replacements: ${replacementCount}`;
+            document.getElementById(" countNoOfReplacements").textContent = `Number of Replacements: ${countNoOfReplacements}`;
                 
                 
         });
