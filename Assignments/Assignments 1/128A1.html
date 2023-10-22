@@ -343,7 +343,7 @@
             <tr class="formRow">
                   
                 <th class="formHeader">Current date:</th>
-             <div style="width: 600px;">
+                <div style="width: 600px;">
                 <td><input type="text" id="currentDate" readonly style="width: 215px;"> </td>
                 </div>
             </tr>
@@ -399,7 +399,7 @@
                 <th class="formHeader"></th>
                 <td>
                     <button type="button" id="translate">Translate</button>
-                    <button type="reset">Reset</button>
+                    <button type="reset" id="resetButton">Reset</button>
                 </td>
             </tr>
         </table>
@@ -550,8 +550,6 @@
                 const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
                 window.open(googleTranslateURL);
             });
-        
-  
    
 </script>
 </body>
