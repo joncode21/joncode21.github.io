@@ -463,8 +463,6 @@
             var minute = now.getMinutes();
             var amOrPm = hour>=12 ? 'PM':'AM';    
             var twelveHourFormat=hour % 12 || 12;
-
-            // Get the last two digits of the year
             var year = now.getFullYear().toString().slice(-2);    
 
             return `${now.getDate()} ${month} ${year} ${day} ${twelveHourFormat}:${minute < 10 ? '0' + minute : minute} ${amOrPm}`;
