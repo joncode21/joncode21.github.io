@@ -502,7 +502,7 @@
         });
 
          
-        // Find and replace functionality 
+        // Find and replace button functionality 
         document.getElementById("findAndReplace").addEventListener("click", function()
         {
             var findText = document.getElementById("find").value;
@@ -519,30 +519,16 @@
         });
 
         // For Translate button
-        document.getElementById("translate").addEventListener("click", function (e) 
+        document.getElementById("translate").addEventListener("click", function () 
             {
-                const nameInput = document.getElementById("name");
-                const nameError = document.getElementById("nameError");
-                
-                const nameValue = nameInput.value;
-                if (nameValue.trim() === "" || /\d/.test(nameValue)) 
-                {
-                    // Name is empty or contains numbers; prevent translation and show error
-                    e.preventDefault();
-                    nameError.innerHTML = "Name must be valid";
-                    return;
-                } 
-                else 
-                {
-                    nameError.style.display = "none";
-                    nameInput.setCustomValidity("");
-                }
+                var messageText = document.getElementById("message").value;
+            
+                var sourceLanguage = document.querySelector('input[name="sourceLanguage"]').value;
+            
+                var targetLanguage = document.getElementById("targetLanguage").value;
 
-                const messageText = document.getElementById("message").value;
-                const sourceLanguage = document.querySelector('input[name="sourceLanguage"]:checked').value;
-                const targetLanguage = document.getElementById("targetLanguage").value;
-
-                const googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
+                var googleTranslateURL = `https://translate.google.com/?sl=${sourceLanguage}&tl=${targetLanguage}&text=${encodeURIComponent(messageText)}`;
+            
                 window.open(googleTranslateURL);
             });
    
