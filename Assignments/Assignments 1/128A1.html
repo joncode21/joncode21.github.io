@@ -1,149 +1,138 @@
 <html>
 <head>
+<title>A1-T07G10-8335175,8379014,8561539 (WeiRong,DarrenNg,Miguel)</title>
+<!--CSS-->
+<style>
 
-    
- <!-- PART 1-->
-       <title>A1-T07G10-8335175,8379014,8561539 (WeiRong,DarrenNg,Miguel)</title>
-    
-    <html><h1><b>Part 1:Group Introduction</b></h1></html>
- 
+    /*Part 1 CSS*/
+    .introduction
+    {
+        max-width: 780px;
+        justify-content: center;
+        align-items: center;
+    }
 
-    <!--CSS-->
-    <style>
+    .introductionTable 
+	{
+        width: 100%;
+        border-collapse: collapse;
+        border: double;
+    }
 
-        /*Part 1 CSS*/
-        .introduction
-        {
-            max-width: 780px;
-            justify-content: center;
-            align-items: center;
-        }
+    .introduction-header
+    {
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        border: double;
+        padding-top: 10px;
+        padding-bottom: 10px;
+     }
 
-        .introductionTable 
-		{
-            width: 100%;
-            border-collapse: collapse;
-            border: double;
-        }
+    th.introduction-header
+	{
+        background-color: #c3d3e3;
+        border: double;
+    }
 
-        .introduction-header
-        {
-            font-size: 20px;
-            text-align: center;
-            font-weight: bold;
-            border: double;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
+    tr.introductionTable
+    {
+        border-collapse: collapse;
+        padding: 10px;
+        text-align: left;
+     }
 
-        th.introduction-header
-		{
-            background-color: #c3d3e3;
-            border: double;
-        }
+    tr.introductionTableRow td
+    {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+        text-align: left;
+        border: double;
+    }
 
-        tr.introductionTable
-        {
-            border-collapse: collapse;
-            padding: 10px;
-            text-align: left;
-        }
-
-        tr.introductionTableRow td
-        {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 10px;
-            text-align: left;
-            border: double;
-        }
-
-        tr.introductionTable th
-        {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 10px;
-            text-align: left;
-            border: double;
-        }
+    tr.introductionTable th
+    {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+        text-align: left;
+        border: double;
+    }
 	
 
-        /*Part 2 CSS*/
-        .codingCode
-        {
-            position: relative;
-            left: -250px;
-            display: inline-block;
-        }
+    /*Part 2 CSS*/
+    .codingCode
+    {
+        position: relative;
+        left: -250px;
+        display: inline-block;
+    }
 
         
 
-        /*Part 3 CSS */
-        .contactDetailsTable 
-        {
-            min-width: 370px;         
-            border-collapse: collapse;
-            border: double;
-        }
+    /*Part 3 CSS */
+    .contactDetailsTable 
+    {
+        min-width: 370px;         
+        border-collapse: collapse;
+        border: double;
+    }
 
-        .contactDetailsData 
-        {
-            border: 1px solid black; 
-            padding: 5px; 
-            text-align: left; 
-            border-collapse: collapse;
-            border: double;
+    .contactDetailsData 
+    {
+        border: 1px solid black; 
+        padding: 5px; 
+        text-align: left; 
+        border-collapse: collapse;
+        border: double;
 
-        }
+    }
 
-        .contactDetailsData b 
-        {
-            font-weight: bold; 
-        }
+    .contactDetailsData b 
+    {
+        font-weight: bold; 
+    }
        
 
        
-        /*Part4 CSS*/
-
-        th.formHeader
-        {
-            text-align: left;
-            width: 15%;
-            background-color: #c3d3e3;
-            border-style: ridge;
-        }
-
-
-        tr.formRow td
-        {
-            border-style: ridge;
-            border-collapse: collapse;
-            padding: 10px;
-            text-align: left;
-        }
+    /*Part4 CSS*/
+    th.formHeader
+    {
+        text-align: left;
+        width: 15%;
+        background-color: #c3d3e3;
+        border-style: ridge;
+    }
 
 
-        #myForm
-        {
-            width: 60%;
-            border-style: solid;
-            border-collapse: collapse;
-        }
+    tr.formRow td
+    {
+        border-style: ridge;
+        border-collapse: collapse;
+        padding: 10px;
+        text-align: left;
+    }
 
-        tr.formRow
-        {
-            border-style: 4px ridge;
-        }
 
-    
-		
-		
-    </style>
- 
+    #myForm
+    {
+        width: 60%;
+        border-style: solid;
+        border-collapse: collapse;
+    }
+
+    tr.formRow
+    {
+        border-style: 4px ridge;
+    }
+	
+</style>
 </head>
     
-    <!--HTML-->
+<!-- PART 1-->
 <body>
+<h1><b>Part 1:Group Introduction</b></h1>
 <div class="introduction">
     <table class="introductionTable">
         <tr class="introductionTableRow">
@@ -414,6 +403,8 @@
 
 <script>
         // JavaScript code
+
+        //validate name 
         function validateName() 
         {
             var nameInput = document.getElementById("name").value;
@@ -436,7 +427,9 @@
 
             return true;         
         }
-            
+
+
+        //validate module code    
         function validateModuleCode()
         {
             var moduleInput = document.getElementById("moduleCode").value;
@@ -460,8 +453,7 @@
         }
 
 
-        // Update current date and time  box
-    
+        // Update current date and time  box    
         function getCurrentDate() 
         {
             var now = new Date();
@@ -482,7 +474,7 @@
             
 
 
-
+        //validate Message based on textarea
         function validateMessage()
         {
             var messageInput = document.getElementById("message").value;
@@ -510,8 +502,7 @@
         });
 
          
-        // Find and replace functionality
-    
+        // Find and replace functionality 
         document.getElementById("findAndReplace").addEventListener("click", function()
         {
             var findText = document.getElementById("find").value;
