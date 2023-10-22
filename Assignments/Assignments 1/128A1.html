@@ -531,6 +531,21 @@
             
                 window.open(googleTranslateURL);
             });
+
+        // For Reset button
+        document.getElementById("resetButton").addEventListener("click", function (reset)
+        {
+            // Prevents the default reset behavior
+            reset.preventDefault();
+
+            // To reset the specified element IDs
+            document.getElementById("name").value = "";
+            document.getElementById("moduleCode").value = "";
+
+            // To clear the error messages
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("moduleCodeError").textContent = "";
+        });
    
 </script>
 </body>
