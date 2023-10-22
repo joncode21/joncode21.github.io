@@ -359,7 +359,7 @@
                 <td>
                     <div style="width: 200px;">
                     <button id="findAndReplace" type="button">Find and Replace</button>
-                    <span id=" countNoOfReplacements"></span>
+                    <span id="replacementCount"></span>
                     </div>        
                 </td>
             </tr>
@@ -504,20 +504,18 @@
         });
 
          
-        // Find and replace button functionality 
+        // Find and replace functionality
+    
         document.getElementById("findAndReplace").addEventListener("click", function()
         {
             var findText = document.getElementById("find").value;
             var replaceText = document.getElementById("replace").value;
             var messageTextArea = document.getElementById("message");
-            var globalSearch = new RegExp(findText, "g");
-            var countNoOfReplacements = (messageTextArea.value.match(globalSearch) || []).length;
-            
-            messageTextArea.value = messageTextArea.value.replace(globalSearch, replaceText);
+            var regex = new RegExp(findText, "g");
+            var replacementCount = (messageTextArea.value.match(regex) || []).length;
+            messageTextArea.value = messageTextArea.value.replace(regex, replaceText);
 
-            document.getElementById(" countNoOfReplacements").textContent = `Number of Replacements: ${countNoOfReplacements}`;
-                
-                
+            document.getElementById("replacementCount").textContent = `Number of Replacements: ${replacementCount}`;
         });
 
         // For Translate button
